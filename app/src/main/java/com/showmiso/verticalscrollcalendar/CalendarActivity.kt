@@ -9,6 +9,8 @@ import kotlinx.android.synthetic.main.activity_calendar.*
 import java.util.*
 
 class CalendarActivity : AppCompatActivity() {
+    private var position = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calendar)
@@ -18,29 +20,36 @@ class CalendarActivity : AppCompatActivity() {
 
     private fun initUI() {
         img_back.setOnClickListener(onClickListener)
+        text_today.setOnClickListener(onClickListener)
 
         val list = createCalendarInfo()
         val adapter = CalendarAdapter()
         adapter.list = list
         val layoutManager = StaggeredGridLayoutManager(7, StaggeredGridLayoutManager.VERTICAL)
-
         rcv_calendar.layoutManager = layoutManager
         rcv_calendar.adapter = adapter
-
     }
 
     private fun createCalendarInfo(): ArrayList<PeriodDate> {
         val cal = GregorianCalendar()
         val list = ArrayList<PeriodDate>()
 
-        for (i in 0..2) {
+        for (i in -10..10) {
             val calendar = GregorianCalendar(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH) + i, 1)
+            // today
+            val today = GregorianCalendar.getInstance(Locale.KOREA)
+            val todayYear = today.get(Calendar.YEAR)
+            val todayMonth = today.get(Calendar.MONTH) + 1
+            val todayDay = today.get(Calendar.DAY_OF_MONTH)
 
             // add month
             val year = calendar.get(Calendar.YEAR)
             val month = calendar.get(Calendar.MONTH) + 1
             val monthDate = PeriodDate(DateType.VIEW_TYPE_MONTH, year, month)
             list.add(monthDate)
+            if (year == todayYear && month == todayMonth) {
+                position = list.size - 1
+            }
 
             // dayOfWeek is not inclusive
             val dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1
@@ -49,11 +58,6 @@ class CalendarActivity : AppCompatActivity() {
                 val date = PeriodDate(DateType.VIEW_TYPE_DAY_EMPTY)
                 list.add(date)
             }
-
-            // today
-            val today = GregorianCalendar.getInstance(Locale.KOREA)
-            val todayMonth = today.get(Calendar.MONTH) + 1
-            val todayDay = today.get(Calendar.DAY_OF_MONTH)
 
             // maxDayOfWeek is inclusive
             for (k in 1..maxDayOfWeek) {
@@ -78,6 +82,10 @@ class CalendarActivity : AppCompatActivity() {
         when (it.id) {
             R.id.img_back -> {
                 onBackPressed()
+            }
+            R.id.text_today -> {
+                rcv_calendar.scrollToPosition(position)
+
             }
         }
     }
