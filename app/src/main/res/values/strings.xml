@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VerticalScrollCalendar</string>
+    <string name="label_calendar">달력</string>
 </resources>
