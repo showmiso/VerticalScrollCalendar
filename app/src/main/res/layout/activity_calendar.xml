@@ -9,14 +9,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_common"
+            android:layout_marginTop="@dimen/margin_common"
+            android:layout_marginBottom="@dimen/margin_common"
             android:src="@drawable/ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,9 +36,11 @@
             tools:text="2020" />
 
         <TextView
+            android:id="@+id/text_today"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_common"
+            android:padding="5dp"
             android:text="오늘"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +51,8 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/layout_day_of_week"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
         app:layout_constraintTop_toBottomOf="@id/layout_header">
 
         <TextView
@@ -101,10 +106,18 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <View
+        android:id="@+id/view_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/GrayA9"
+        app:layout_constraintTop_toBottomOf="@id/layout_day_of_week" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcv_calendar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout_day_of_week" />
+        app:layout_constraintTop_toBottomOf="@id/view_divider" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

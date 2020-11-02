@@ -6,26 +6,26 @@ import kotlinx.android.synthetic.main.item_calendar_day.view.*
 import kotlinx.android.synthetic.main.item_calendar_month.view.*
 
 abstract class CalendarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    abstract fun bind()
+    abstract fun bind(date: PeriodDate)
 }
 
 class MonthViewHolder(itemView: View) : CalendarViewHolder(itemView) {
-    override fun bind() {
-        itemView.text_month.text = ""
+    override fun bind(date: PeriodDate) {
+        itemView.text_month.text = date.month.toString()
     }
 }
 
 class DayViewHolder(itemView: View) : CalendarViewHolder(itemView) {
-    override fun bind() {
-        itemView.text_day.text = ""
-        itemView.img_selected.visibility = View.GONE
+    override fun bind(date: PeriodDate) {
+        itemView.text_day.text = date.day.toString()
+        itemView.img_selected.visibility = if (date.isToday!!) View.VISIBLE else View.GONE
         itemView.img_dot.visibility = View.GONE
-        itemView.img_line.visibility = View.VISIBLE
+        itemView.img_line.visibility = View.GONE
     }
 }
 
 class DayEmptyViewHolder(itemView: View) : CalendarViewHolder(itemView) {
-    override fun bind() {
+    override fun bind(date: PeriodDate) {
     }
 }
 
