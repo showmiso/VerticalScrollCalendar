@@ -20,7 +20,7 @@ class DayViewHolder(itemView: View) : CalendarViewHolder(itemView) {
         itemView.text_day.text = date.day.toString()
         itemView.img_selected.visibility = if (date.isToday!!) View.VISIBLE else View.GONE
         itemView.img_dot.visibility = View.GONE
-        itemView.img_line.visibility = View.GONE
+        itemView.img_line.visibility = if (date.isPeriod!!) View.VISIBLE else View.GONE
     }
 }
 

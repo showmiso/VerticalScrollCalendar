@@ -3,6 +3,7 @@ package com.showmiso.verticalscrollcalendar
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_calendar.*
 import java.util.*
@@ -26,7 +27,6 @@ class CalendarActivity : AppCompatActivity() {
         rcv_calendar.layoutManager = layoutManager
         rcv_calendar.adapter = adapter
 
-        
     }
 
     private fun createCalendarInfo(): ArrayList<PeriodDate> {
@@ -60,10 +60,12 @@ class CalendarActivity : AppCompatActivity() {
                 val dayCalendar =
                     GregorianCalendar(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), k)
                 val day = dayCalendar.get(Calendar.DAY_OF_MONTH)
+                // TODO: 임시값
+                val isPeriod = day >= 28 || day < 3
                 val date = PeriodDate(
                     DateType.VIEW_TYPE_DAY,
                     year, month, day,
-                    isFertile = false, isPeriod = false, hasMemo = false,
+                    isFertile = false, isPeriod = isPeriod, hasMemo = false,
                     isToday = month == todayMonth && day == todayDay
                 )
                 list.add(date)
