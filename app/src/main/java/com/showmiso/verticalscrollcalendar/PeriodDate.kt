@@ -11,8 +11,8 @@ class PeriodDate(
     val year: Int? = null,
     val month: Int? = null,
     val day: Int? = null,
-    val isFertile: Boolean? = null,
-    val isPeriod: Boolean? = null,
-    val hasMemo: Boolean? = null,
-    val isToday: Boolean? = false
+    val isFertile: Boolean? = null, // 배란주기
+    val isPeriod: Boolean? = null,  // 생리주기
+    val hasMemo: Boolean? = null,   // 메모
+    val isToday: Boolean? = false   // 오늘
 )

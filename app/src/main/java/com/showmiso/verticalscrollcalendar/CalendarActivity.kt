@@ -3,6 +3,7 @@ package com.showmiso.verticalscrollcalendar
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import kotlinx.android.synthetic.main.activity_calendar.*
@@ -28,6 +29,7 @@ class CalendarActivity : AppCompatActivity() {
         val layoutManager = StaggeredGridLayoutManager(7, StaggeredGridLayoutManager.VERTICAL)
         rcv_calendar.layoutManager = layoutManager
         rcv_calendar.adapter = adapter
+        rcv_calendar.scrollToPosition(position)
     }
 
     private fun createCalendarInfo(): ArrayList<PeriodDate> {
@@ -84,8 +86,14 @@ class CalendarActivity : AppCompatActivity() {
                 onBackPressed()
             }
             R.id.text_today -> {
-                rcv_calendar.scrollToPosition(position)
-
+//                rcv_calendar.scrollToPosition(position)
+                val smoothScroller: RecyclerView.SmoothScroller by lazy {
+                    object : LinearSmoothScroller(this) {
+                        override fun getVerticalSnapPreference() = SNAP_TO_START
+                    }
+                }
+                smoothScroller.targetPosition = position
+                rcv_calendar.layoutManager?.startSmoothScroll(smoothScroller)
             }
         }
     }
