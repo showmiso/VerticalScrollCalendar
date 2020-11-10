@@ -1,4 +1,4 @@
-package com.showmiso.verticalscrollcalendar
+package com.showmiso.verticalscrollcalendar.calendar
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

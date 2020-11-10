@@ -1,9 +1,10 @@
-package com.showmiso.verticalscrollcalendar
+package com.showmiso.verticalscrollcalendar.calendar
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.showmiso.verticalscrollcalendar.R
 import java.util.ArrayList
 
 class CalendarAdapter : RecyclerView.Adapter<CalendarViewHolder>() {

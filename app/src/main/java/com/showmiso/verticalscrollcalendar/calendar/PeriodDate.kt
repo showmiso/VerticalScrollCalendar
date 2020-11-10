@@ -1,4 +1,4 @@
-package com.showmiso.verticalscrollcalendar
+package com.showmiso.verticalscrollcalendar.calendar
 
 enum class DateType(value: Int) {
     VIEW_TYPE_MONTH(0),

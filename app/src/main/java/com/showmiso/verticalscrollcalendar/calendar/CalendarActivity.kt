@@ -1,4 +1,4 @@
-package com.showmiso.verticalscrollcalendar
+package com.showmiso.verticalscrollcalendar.calendar
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.showmiso.verticalscrollcalendar.R
 import kotlinx.android.synthetic.main.activity_calendar.*
 import java.util.*
 

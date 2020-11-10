@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">VerticalScrollCalendar</string>
     <string name="label_calendar">달력</string>
+    <string name="label_main">메인</string>
+    <string name="label_web_view">웹뷰</string>
+    <string name="label_lock">앱 잠금</string>
 </resources>
