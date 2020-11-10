@@ -23,10 +23,12 @@ class CalendarActivity : AppCompatActivity() {
     private fun initUI() {
         img_back.setOnClickListener(onClickListener)
         text_today.setOnClickListener(onClickListener)
+        btn_edit.setOnClickListener(onClickListener)
+        img_close.setOnClickListener(onClickListener)
 
         val list = createCalendarInfo()
         val adapter = CalendarAdapter()
-        adapter.list = list
+        adapter.setList(list)
         val layoutManager = StaggeredGridLayoutManager(7, StaggeredGridLayoutManager.VERTICAL)
         rcv_calendar.layoutManager = layoutManager
         rcv_calendar.adapter = adapter
@@ -96,6 +98,25 @@ class CalendarActivity : AppCompatActivity() {
                 smoothScroller.targetPosition = position
                 rcv_calendar.layoutManager?.startSmoothScroll(smoothScroller)
             }
+            R.id.btn_edit -> {
+                updateEditMode(true)
+            }
+            R.id.img_close -> {
+                updateEditMode(false)
+            }
+        }
+    }
+
+    private fun updateEditMode(mode: Boolean) {
+        if (mode) {
+            layout_edit_mode.visibility = View.VISIBLE
+            btn_edit.visibility = View.GONE
+
+
+        } else {
+            layout_edit_mode.visibility = View.GONE
+            btn_edit.visibility = View.VISIBLE
+
         }
     }
 
