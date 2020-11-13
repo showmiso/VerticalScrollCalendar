@@ -30,6 +30,8 @@
         android:background="@color/White"
         app:menu="@menu/menu_main"
         app:labelVisibilityMode="labeled"
+        app:itemTextAppearanceActive="@style/MenuItem"
+        app:itemTextAppearanceInactive="@style/MenuItem"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,6 @@
         android:id="@+id/todayFragment"
         android:icon="@drawable/ic_person"
         android:title="Today" />
-
     <item
         android:id="@+id/monitorFragment"
         android:icon="@drawable/ic_monitor"
