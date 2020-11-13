@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".lock.LockActivity"></activity>
+        <activity android:name=".init.InitActivity"></activity>
+        <activity android:name=".lock.LockActivity" />
         <activity android:name=".blog.WebViewActivity" />
         <activity android:name=".today.TodayActivity" />
         <activity android:name=".MainActivity">

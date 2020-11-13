@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.showmiso.verticalscrollcalendar.blog.WebViewActivity
 import com.showmiso.verticalscrollcalendar.calendar.CalendarActivity
+import com.showmiso.verticalscrollcalendar.init.InitActivity
 import com.showmiso.verticalscrollcalendar.lock.LockActivity
 import com.showmiso.verticalscrollcalendar.today.TodayActivity
 
@@ -28,6 +29,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.btn_lock -> {
                 startActivity(Intent(this@MainActivity, LockActivity::class.java))
+            }
+            R.id.btn_init -> {
+                startActivity(Intent(this@MainActivity, InitActivity::class.java))
             }
         }
     }

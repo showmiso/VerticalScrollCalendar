@@ -15,14 +15,6 @@
         android:text="@string/label_calendar" />
 
     <TextView
-        android:id="@+id/btn_main"
-        style="@style/TextList"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_item"
-        android:onClick="onClickView"
-        android:text="@string/label_main" />
-
-    <TextView
         android:id="@+id/btn_web_view"
         style="@style/TextList"
         android:layout_width="match_parent"
@@ -37,5 +29,22 @@
         android:layout_height="@dimen/height_item"
         android:onClick="onClickView"
         android:text="@string/label_lock" />
+
+    <TextView
+        android:id="@+id/btn_main"
+        style="@style/TextList"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_item"
+        android:onClick="onClickView"
+        android:text="@string/label_main" />
+
+    <TextView
+        android:id="@+id/btn_init"
+        style="@style/TextList"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_item"
+        android:onClick="onClickView"
+        android:text="초기 Nav" />
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
